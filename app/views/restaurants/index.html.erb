@@ -1,7 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Restaurants</h1>
-
+<div class="jumbotron">
+  <h2> Sample rails application</h2>
+  <h3> Write reviews and rate it</h3>
+</div>
 <table class ="table table-hover table-condensed">
   <thead>
     <tr>
@@ -19,7 +19,7 @@
         <td><%= restaurant.name %></td>
         <td><%= restaurant.address %></td>
         <td><%= restaurant.phone %></td>
-        <td><%= restaurant.website %></td>
+        <td><%= link_to restaurant.website, restaurant.website %></td>
         <td><%= link_to 'Show', restaurant, class: "btn btn-link" %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) , class: "btn btn-link"%></td>
         <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
