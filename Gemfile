@@ -29,3 +29,4 @@ gem 'carrierwave'
 gem "fog", "~> 1.27"
 gem "mini_magick"
 gem 'devise'
+gem 'searchkick'

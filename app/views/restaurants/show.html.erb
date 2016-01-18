@@ -1,9 +1,9 @@
-
-<%= image_tag @restaurant.image_url %>
-<p>
-  <strong>Name:</strong>
+<div class="row">
+	<div class="col-md-3">
+	<%= image_tag @restaurant.image_url %>
+<h2>
   <%= @restaurant.name %>
-</p>
+</h2>
 
 <p>
   <strong>Address:</strong>
@@ -17,8 +17,43 @@
 
 <p>
   <strong>Website:</strong>
-  <%= @restaurant.website %>
+  <%= link_to @restaurant.website, @restaurant.website %>
 </p>
+<%= link_to "Write a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %><br/>
+
+
+<br>
+<br>
+
+<iframe
+  width="250"
+  height="250"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/search?key=AIzaSyD_oN_KgkKWDRs-KMaIwBONZacEwfFpERY
+  &q=<%=  @restaurant.address.parameterize %>&zoom=14">
+</iframe>
+
+	</div>
+
+	<div class="col-md-9">
+	<% if @reviews.blank? %>
+		<h3> No reviews yet </h3>
+	<% else %>
+		<% @reviews.each do |review| %>
+		 <div class="star-rating"></div>
+		 <p><%= review.comment %></p>
+   <% end %>
+  <% end %>
+</div>
+</div>
+
+
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-link" %> |
 <%= link_to 'Back', restaurants_path , class: "btn btn-link"%>
+
+<script type="text/javascript">
+	$('.star-rating').raty();{
+		 path: 'assets/images'
+	}
+</script>
